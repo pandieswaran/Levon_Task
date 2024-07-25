@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Example</title>
+</head>
+<body>
+    <h1>WebSocket Real-Time Notifications</h1>
+    <button>Like</button>
+    <p id="likes">0</p>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:8000');
+
+        socket.on("connect", () => {
+            console.log("Connected");
+        });
+
+        const btn = document.querySelector('button');
+        const likes = document.getElementById('likes');
+
+        btn.addEventListener('click', () => {
+            socket.emit('liked');
+        });
+
+        socket.on('likeupdate', (count) => {
+            likes.textContent = count;
+        });
+    </script>
+</body>
+</html>

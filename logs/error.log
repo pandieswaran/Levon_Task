@@ -1,0 +1,4 @@
+{"level":"error","message":"Operational error: This is a validation error example"}
+{"level":"error","message":"Operational error: This is a database error example"}
+{"level":"error","message":"Operational error: This is a generic error example"}
+{"level":"error","message":"Operational error: User not found"}
