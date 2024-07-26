@@ -29,10 +29,10 @@ const io = socketIo(server);
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 
-const AppError = require('../errors/AppError');
-const DatabaseError = require('../errors/DatabaseError');
-const ValidationError = require('../errors/ValidationError');
-const errorHandler = require('../Middleware/errorHandler')
+// const AppError = require('../errors/AppError');
+// const DatabaseError = require('../errors/DatabaseError');
+// const ValidationError = require('../errors/ValidationError');
+// const errorHandler = require('../Middleware/errorHandler')
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -204,27 +204,27 @@ router.delete('/userdelete/:id', async (req, res) => {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Task 6
+// //Task 6
 
-// Get a user by ID and Error to store a Log File using Middleware
-router.get('/users/:id', async (req, res, next) => {
-    try {
-        const User = await user.findById(req.params.id);
-        if (!User) {
-            return next(new AppError('User not found', 404));
-        }
-        res.status(200).json(User);
-    } catch (err) {
-        next(err); // Forward the error to the error handling middleware
-    }
-});
+// // Get a user by ID and Error to store a Log File using Middleware
+// router.get('/users/:id', async (req, res, next) => {
+//     try {
+//         const User = await user.findById(req.params.id);
+//         if (!User) {
+//             return next(new AppError('User not found', 404));
+//         }
+//         res.status(200).json(User);
+//     } catch (err) {
+//         next(err); // Forward the error to the error handling middleware
+//     }
+// });
 
-//Run the Router and Error to store and log File
-router.get('/database', (req, res, next) => {
-    next(new DatabaseError('This is a database error example'));
-});
+// //Run the Router and Error to store and log File
+// router.get('/database', (req, res, next) => {
+//     next(new DatabaseError('This is a database error example'));
+// });
 
-// Error Handling Middleware
-router.use(errorHandler);
+// // Error Handling Middleware
+// router.use(errorHandler);
 
 module.exports = router;

@@ -15,11 +15,11 @@ app.use('/', (req, res) => {
     res.send('Levon api running new deploy');
 });
 
-// Global Error Handling Middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
+// // Global Error Handling Middleware
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).send('Something broke!');
+// });
 
 
 const PORT = process.env.PORT || 4000;
